@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+/home/srijit/esp/wifi_base/build/CMakeFiles/bootloader
+/home/srijit/esp/wifi_base/build/CMakeFiles/bootloader.rule
+/home/srijit/esp/wifi_base/build/CMakeFiles/bootloader-complete.rule
+/home/srijit/esp/wifi_base/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+/home/srijit/esp/wifi_base/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/home/srijit/esp/wifi_base/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/home/srijit/esp/wifi_base/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/home/srijit/esp/wifi_base/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/home/srijit/esp/wifi_base/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/home/srijit/esp/wifi_base/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule
