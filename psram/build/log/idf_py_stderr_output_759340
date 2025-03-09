@@ -1,0 +1,9 @@
+CMake Error at /home/srijit/esp/esp-idf/tools/cmake/build.cmake:610 (message):
+  ERROR: Because project depends on espressif/esp_cam_sensor (^0.9.0) which
+  doesn't match any versions, version solving failed.
+
+Call Stack (most recent call first):
+  /home/srijit/esp/esp-idf/tools/cmake/project.cmake:710 (idf_build_process)
+  CMakeLists.txt:12 (project)
+
+

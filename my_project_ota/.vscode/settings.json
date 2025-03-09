@@ -1,0 +1,11 @@
+{
+    "git.ignoreLimitWarning": true,
+    "idf.port": "/dev/ttyACM0",
+    "idf.flashType": "UART",
+    "C_Cpp.errorSquiggles": "enabled",
+    "C_Cpp.autocompleteAddParentheses": true,
+    "files.associations": {
+        "esp_partition.h": "c",
+        "esp_log.h": "c"
+    }
+}

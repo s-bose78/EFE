@@ -1,0 +1,11 @@
+# Name,   Type, SubType, Offset,   Size,    Flags
+# 16KB for NVS
+nvs,      data, nvs,    0x9000,   0x4000,
+# 510KB for OTA_0 (slightly reduced)
+ota_0,    app,  ota_0,  0x10000,  0xA0000,
+# 510KB for OTA_1 (slightly reduced)
+ota_1,    app,  ota_1,  0xB0000,  0xA0000,
+# 2KB for OTA metadata (used to store boot info about active partition)
+otadata,  data, ota,    0x150000, 0x2000,
+# 128KB for SPIFFS
+spiffs,   data, spiffs, 0x152000, 0x20000,

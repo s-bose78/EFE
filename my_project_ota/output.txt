@@ -1,0 +1,574 @@
+Executing action: all (aliases: build)
+Running ninja in directory /home/srijit/esp/my_project_ota/build
+Executing "ninja all"...
+[1/4] cd /home/srijit/esp/my_project_ota/build/esp-idf/esptool_py && /home/srijit/.espressif/python_env/idf5.5_py3.12_env/bin/python /home/srijit/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/srijit/esp/my_project_ota/build/partition_table/partition-table.bin /home/srijit/esp/my_project_ota/build/my_project_ota.bin
+my_project_ota.bin binary size 0x52730 bytes. Smallest app partition is 0xa0000 bytes. 0x4d8d0 bytes (48%) free.
+[2/4] Performing build step for 'bootloader'
+[1/1] cd /home/srijit/esp/my_project_ota/build/bootloader/esp-idf/esptool_py && /home/srijit/.espressif/python_env/idf5.5_py3.12_env/bin/python /home/srijit/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 /home/srijit/esp/my_project_ota/build/bootloader/bootloader.bin
+Bootloader binary size 0x52b0 bytes. 0x2d50 bytes (35%) free.
+[3/4] No install step for 'bootloader'
+[4/4] Completed 'bootloader'
+Executing action: flash
+Running ninja in directory /home/srijit/esp/my_project_ota/build
+Executing "ninja flash"...
+[1/5] cd /home/srijit/esp/my_project_ota/build/esp-idf/esptool_py && /home/srijit/.espressif/python_env/idf5.5_py3.12_env/bin/python /home/srijit/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/srijit/esp/my_project_ota/build/partition_table/partition-table.bin /home/srijit/esp/my_project_ota/build/my_project_ota.bin
+my_project_ota.bin binary size 0x52730 bytes. Smallest app partition is 0xa0000 bytes. 0x4d8d0 bytes (48%) free.
+[2/5] Performing build step for 'bootloader'
+[1/1] cd /home/srijit/esp/my_project_ota/build/bootloader/esp-idf/esptool_py && /home/srijit/.espressif/python_env/idf5.5_py3.12_env/bin/python /home/srijit/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 /home/srijit/esp/my_project_ota/build/bootloader/bootloader.bin
+Bootloader binary size 0x52b0 bytes. 0x2d50 bytes (35%) free.
+[3/5] No install step for 'bootloader'
+[4/5] Completed 'bootloader'
+[4/5] cd /home/srijit/esp/esp-idf/components/esptool_py && /usr/bin/cmake -D IDF_PATH=/home/srijit/esp/esp-idf -D "SERIAL_TOOL=/home/srijit/.espressif/python_env/idf5.5_py3.12_env/bin/python;;/home/srijit/esp/esp-idf/components/esptool_py/esptool/esptool.py;--chip;esp32s3" -D "SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args" -D WORKING_DIRECTORY=/home/srijit/esp/my_project_ota/build -P /home/srijit/esp/esp-idf/components/esptool_py/run_serial_tool.cmake
+esptool.py --chip esp32s3 -p /dev/ttyACM0 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 80m --flash_size 2MB 0x0 bootloader/bootloader.bin 0x10000 my_project_ota.bin 0x8000 partition_table/partition-table.bin 0x150000 ota_data_initial.bin
+esptool.py v4.9.dev5
+Serial port /dev/ttyACM0
+Connecting....
+Chip is ESP32-S3 (QFN56) (revision v0.2)
+Features: WiFi, BLE, Embedded PSRAM 8MB (AP_3v3)
+Crystal is 40MHz
+MAC: 48:27:e2:ef:c7:b0
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Configuring flash size...
+Flash will be erased from 0x00000000 to 0x00005fff...
+Flash will be erased from 0x00010000 to 0x00062fff...
+Flash will be erased from 0x00008000 to 0x00008fff...
+Flash will be erased from 0x00150000 to 0x00151fff...
+SHA digest in image updated
+Compressed 21168 bytes to 13481...
+Writing at 0x00000000... (100 %)
+Wrote 21168 bytes (13481 compressed) at 0x00000000 in 0.6 seconds (effective 276.9 kbit/s)...
+Hash of data verified.
+Compressed 337712 bytes to 183358...
+Writing at 0x00010000... (8 %)
+Writing at 0x0001c0a1... (16 %)
+Writing at 0x00024098... (25 %)
+Writing at 0x0002a8fd... (33 %)
+Writing at 0x0003087b... (41 %)
+Writing at 0x0003655c... (50 %)
+Writing at 0x0003c6ca... (58 %)
+Writing at 0x000435db... (66 %)
+Writing at 0x0004d2c2... (75 %)
+Writing at 0x000549ba... (83 %)
+Writing at 0x0005a957... (91 %)
+Writing at 0x00060f2f... (100 %)
+Wrote 337712 bytes (183358 compressed) at 0x00010000 in 4.2 seconds (effective 639.3 kbit/s)...
+Hash of data verified.
+Compressed 3072 bytes to 124...
+Writing at 0x00008000... (100 %)
+Wrote 3072 bytes (124 compressed) at 0x00008000 in 0.0 seconds (effective 548.2 kbit/s)...
+Hash of data verified.
+Compressed 8192 bytes to 31...
+Writing at 0x00150000... (100 %)
+Wrote 8192 bytes (31 compressed) at 0x00150000 in 0.1 seconds (effective 983.3 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...
+Executing action: monitor
+Running idf_monitor in directory /home/srijit/esp/my_project_ota
+Executing "/home/srijit/.espressif/python_env/idf5.5_py3.12_env/bin/python /home/srijit/esp/esp-idf/tools/idf_monitor.py -p /dev/ttyACM0 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 /home/srijit/esp/my_project_ota/build/my_project_ota.elf /home/srijit/esp/my_project_ota/build/bootloader/bootloader.elf -m '/home/srijit/.espressif/python_env/idf5.5_py3.12_env/bin/python' '/home/srijit/esp/esp-idf/tools/idf.py' '-p' '/dev/ttyACM0'"...
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x2b (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x15d0
+load:0x403c8700,len:0xd20
+load:0x403cb700,len:0x2f60
+entry 0x403c8924
+[0;32mI (24) boot: ESP-IDF v5.5-dev-2290-g94cfe394fe 2nd stage bootloader[0m
+[0;32mI (25) boot: compile time Mar  8 2025 15:51:31[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (27) boot: chip revision: v0.2[0m
+[0;32mI (29) boot: efuse block revision: v1.3[0m
+[0;32mI (33) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (37) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32s3: SPI Flash Size : 2MB[0m
+[0;32mI (44) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (51) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (58) boot:  0 nvs              WiFi data        01 02 00009000 00004000[0m
+[0;32mI (64) boot:  1 ota_0            OTA app          00 10 00010000 000a0000[0m
+[0;32mI (71) boot:  2 ota_1            OTA app          00 11 000b0000 000a0000[0m
+[0;32mI (77) boot:  3 otadata          OTA data         01 00 00150000 00002000[0m
+[0;32mI (84) boot:  4 spiffs           Unknown data     01 82 00152000 00020000[0m
+[0;32mI (90) boot: End of partition table[0m
+[0;32mI (94) esp_image: segment 0: paddr=00010020 vaddr=3c040020 size=0f28ch ( 62092) map[0m
+[0;32mI (112) esp_image: segment 1: paddr=0001f2b4 vaddr=3fc94000 size=00d64h (  3428) load[0m
+[0;32mI (113) esp_image: segment 2: paddr=00020020 vaddr=42000020 size=3032ch (197420) map[0m
+[0;32mI (151) esp_image: segment 3: paddr=00050354 vaddr=3fc94d64 size=0244ch (  9292) load[0m
+[0;32mI (153) esp_image: segment 4: paddr=000527a8 vaddr=40374000 size=0ff34h ( 65332) load[0m
+[0;32mI (169) esp_image: segment 5: paddr=000626e4 vaddr=600fe000 size=0001ch (    28) load[0m
+[0;32mI (176) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (176) boot: Disabling RNG early entropy source...[0m
+[0;32mI (187) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (187) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (187) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (189) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (193) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (198) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (202) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (207) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (212) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (216) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (221) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (225) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (229) esp_psram: Speed: 40MHz[0m
+[0;32mI (232) cpu_start: Multicore app[0m
+[0;32mI (966) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (975) cpu_start: Pro cpu start user code[0m
+[0;32mI (975) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (975) app_init: Application information:[0m
+[0;32mI (975) app_init: Project name:     my_project_ota[0m
+[0;32mI (979) app_init: App version:      1075fce-dirty[0m
+[0;32mI (984) app_init: Compile time:     Mar  8 2025 15:51:15[0m
+[0;32mI (989) app_init: ELF file SHA256:  ff53bedca...[0m
+[0;32mI (993) app_init: ESP-IDF:          v5.5-dev-2290-g94cfe394fe[0m
+[0;32mI (999) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (1003) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (1007) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (1011) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (1017) heap_init: At 3FC97BA0 len 00051B70 (326 KiB): RAM[0m
+[0;32mI (1022) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (1027) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (1033) heap_init: At 600FE01C len 00001FCC (7 KiB): RTCRAM[0m
+[0;32mI (1038) esp_psram: Adding pool of 8192K of PSRAM memory to heap allocator[0m
+[0;32mI (1046) spi_flash: detected chip: gd[0m
+[0;32mI (1048) spi_flash: flash io: dio[0m
+[0;33mW (1051) spi_flash: Detected size(8192k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (1063) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (1070) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (1077) main_task: Started on CPU0[0m
+[0;32mI (1097) main_task: Calling app_main()[0m
+[0;32mI (1107) app_main: ===> Check PSRAM Size=8388608 Init=1[0m
+[0;32mI (3107) gpio: GPIO[39]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (3107) gpio: GPIO[38]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (3107) gpio: GPIO[40]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (3157) SD: SD card initialized successfully[0m
+[0;32mI (3167) app_main: ===> Mount sdcard successful[0m
+[0;32mI (5167) app_main: 	Found file: HELLO.BIN[0m
+[0;32mI (5167) app_main: ===> Found /sdcard/HELLO.BIN[0m
+[0;32mI (7167) Update: firmware_size 206880[0m
+[0;32mI (12357) app_main: ===> Copied /sdcard/HELLO.BIN to local heap successfully[0m
+[0;32mI (14357) update_firmware: Partition: ota_0, Type: 0, Subtype: 16, Address: 0x10000, Size: 655360[0m
+[0;32mI (14357) update_firmware: Partition: ota_1, Type: 0, Subtype: 17, Address: 0xb0000, Size: 655360[0m
+[0;32mI (14357) update_firmware: Using partition: ota_1 (Type: 0, Subtype: 17) Address: 0xb0000 size: 655360 bytes[0m
+[0;32mI (15027) update_firmware: Going to write firmware of size 206880 to partition of size 655360.[0m
+[0;32mI (16487) esp_image: segment 0: paddr=000b0020 vaddr=3c020020 size=0a368h ( 41832) map[0m
+[0;32mI (16497) esp_image: segment 1: paddr=000ba390 vaddr=3fc92200 size=02a20h ( 10784) [0m
+[0;32mI (16497) esp_image: segment 2: paddr=000bcdb8 vaddr=40374000 size=03260h ( 12896) [0m
+[0;32mI (16507) esp_image: segment 3: paddr=000c0020 vaddr=42000020 size=17900h ( 96512) map[0m
+[0;32mI (16527) esp_image: segment 4: paddr=000d7928 vaddr=40377260 size=0aeach ( 44716) [0m
+[0;32mI (16527) esp_image: segment 5: paddr=000e27dc vaddr=600fe100 size=0001ch (    28) [0m
+[0;32mI (16527) esp_image: segment 0: paddr=000b0020 vaddr=3c020020 size=0a368h ( 41832) map[0m
+[0;32mI (16537) esp_image: segment 1: paddr=000ba390 vaddr=3fc92200 size=02a20h ( 10784) [0m
+[0;32mI (16547) esp_image: segment 2: paddr=000bcdb8 vaddr=40374000 size=03260h ( 12896) [0m
+[0;32mI (16557) esp_image: segment 3: paddr=000c0020 vaddr=42000020 size=17900h ( 96512) map[0m
+[0;32mI (16567) esp_image: segment 4: paddr=000d7928 vaddr=40377260 size=0aeach ( 44716) [0m
+[0;32mI (16577) esp_image: segment 5: paddr=000e27dc vaddr=600fe100 size=0001ch (    28) [0m
+[0;32mI (16597) update_firmware: Boot partition set to ota_1[0m
+[0;32mI (16597) app_main: ===> Update firmware Done[0m
+[0;32mI (18597) app_main: Restarting in 6 seconds...[0m
+[0;32mI (19597) app_main: Restarting in 5 seconds...[0m
+[0;32mI (20597) app_main: Restarting in 4 seconds...[0m
+[0;32mI (21597) app_main: Restarting in 3 seconds...[0m
+[0;32mI (22597) app_main: Restarting in 2 seconds...[0m
+[0;32mI (23597) app_main: Restarting in 1 seconds...[0m
+[0;32mI (24597) app_main: Restarting in 0 seconds...[0m
+Restarting now.
+ �ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0x2b (SPI_FAST_FLASH_BOOT)
+Saved PC:0x40375ac9
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x15d0
+load:0x403c8700,len:0xd20
+load:0x403cb700,len:0x2f60
+entry 0x403c8924
+[0;32mI (29) boot: ESP-IDF v5.5-dev-2290-g94cfe394fe 2nd stage bootloader[0m
+[0;32mI (29) boot: compile time Mar  8 2025 15:51:31[0m
+[0;32mI (29) boot: Multicore bootloader[0m
+[0;32mI (31) boot: chip revision: v0.2[0m
+[0;32mI (34) boot: efuse block revision: v1.3[0m
+[0;32mI (37) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (41) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (45) boot.esp32s3: SPI Flash Size : 2MB[0m
+[0;32mI (49) boot: Enabling RNG early entropy source...[0m
+[0;32mI (53) boot: Partition Table:[0m
+[0;32mI (56) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (62) boot:  0 nvs              WiFi data        01 02 00009000 00004000[0m
+[0;32mI (69) boot:  1 ota_0            OTA app          00 10 00010000 000a0000[0m
+[0;32mI (75) boot:  2 ota_1            OTA app          00 11 000b0000 000a0000[0m
+[0;32mI (82) boot:  3 otadata          OTA data         01 00 00150000 00002000[0m
+[0;32mI (88) boot:  4 spiffs           Unknown data     01 82 00152000 00020000[0m
+[0;32mI (95) boot: End of partition table[0m
+[0;32mI (98) esp_image: segment 0: paddr=000b0020 vaddr=3c020020 size=0a368h ( 41832) map[0m
+[0;32mI (113) esp_image: segment 1: paddr=000ba390 vaddr=3fc92200 size=02a20h ( 10784) load[0m
+[0;32mI (115) esp_image: segment 2: paddr=000bcdb8 vaddr=40374000 size=03260h ( 12896) load[0m
+[0;32mI (123) esp_image: segment 3: paddr=000c0020 vaddr=42000020 size=17900h ( 96512) map[0m
+[0;32mI (145) esp_image: segment 4: paddr=000d7928 vaddr=40377260 size=0aeach ( 44716) load[0m
+[0;32mI (155) esp_image: segment 5: paddr=000e27dc vaddr=600fe100 size=0001ch (    28) load[0m
+[0;32mI (161) boot: Loaded app from partition at offset 0xb0000[0m
+[0;32mI (161) boot: Disabling RNG early entropy source...[0m
+[0;32mI (173) cpu_start: Multicore app[0m
+[0;32mI (182) cpu_start: Pro cpu start user code[0m
+[0;32mI (182) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (182) app_init: Application information:[0m
+[0;32mI (182) app_init: Project name:     hello_world[0m
+[0;32mI (186) app_init: App version:      1075fce-dirty[0m
+[0;32mI (191) app_init: Compile time:     Mar  7 2025 20:31:15[0m
+[0;32mI (196) app_init: ELF file SHA256:  f96f13456...[0m
+[0;32mI (200) app_init: ESP-IDF:          v5.4-dirty[0m
+[0;32mI (204) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (208) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (212) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (216) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (222) heap_init: At 3FC954E0 len 00054230 (336 KiB): RAM[0m
+[0;32mI (227) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (232) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (238) heap_init: At 600FE11C len 00001ECC (7 KiB): RTCRAM[0m
+[0;32mI (244) spi_flash: detected chip: gd[0m
+[0;32mI (246) spi_flash: flash io: dio[0m
+[0;33mW (249) spi_flash: Detected size(8192k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (261) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (268) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (275) main_task: Started on CPU0[0m
+[0;32mI (295) main_task: Calling app_main()[0m
+Hello World 1!
+[1;31mE (295) HelloWorld: Hi this is f_loge using ESP_LOGE[0m
+
+[0;33mW (295) HelloWorld: Hi this is f_logw using ESP_LOGW[0m
+
+[0;32mI (295) HelloWorld: Hi this is f_logi using ESP_LOGI[0m
+
+[0;32mI (305) HelloWorld:  ESP_OK [0m
+
+[0;32mI (305) HelloWorld:  ESP_FAIL [0m
+
+[0;32mI (305) HelloWorld:  ESP_ERR_NO_MEM [0m
+
+[0;32mI (315) HelloWorld:  ESP_ERR_INVALID_ARG [0m
+
+[0;32mI (315) HelloWorld:  ESP_ERR_INVALID_SIZE [0m
+
+[0;32mI (325) HelloWorld:  ESP_OK [0m
+
+[0;32mI (325) HelloWorld:  ESP_OK [0m
+
+[0;32mI (325) HelloWorld:  ESP_OK [0m
+
+[0;32mI (325) HelloWorld:  ESP_OK [0m
+
+[0;32mI (335) HelloWorld:  ESP_OK [0m
+
+[0;32mI (335) HelloWorld:  ESP_OK [0m
+
+Restarting in 10 seconds...
+Restarting in 9 seconds...
+Restarting in 8 seconds...
+Restarting in 7 seconds...
+Restarting in 6 seconds...
+Restarting in 5 seconds...
+Restarting in 4 seconds...
+Restarting in 3 seconds...
+Restarting in 2 seconds...
+Restarting in 1 seconds...
+Restarting in 0 seconds...
+Restarting now.
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0x2b (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403759a0
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x15d0
+load:0x403c8700,len:0xd20
+load:0x403cb700,len:0x2f60
+entry 0x403c8924
+[0;32mI (29) boot: ESP-IDF v5.5-dev-2290-g94cfe394fe 2nd stage bootloader[0m
+[0;32mI (29) boot: compile time Mar  8 2025 15:51:31[0m
+[0;32mI (29) boot: Multicore bootloader[0m
+[0;32mI (31) boot: chip revision: v0.2[0m
+[0;32mI (34) boot: efuse block revision: v1.3[0m
+[0;32mI (37) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (41) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (45) boot.esp32s3: SPI Flash Size : 2MB[0m
+[0;32mI (49) boot: Enabling RNG early entropy source...[0m
+[0;32mI (53) boot: Partition Table:[0m
+[0;32mI (56) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (62) boot:  0 nvs              WiFi data        01 02 00009000 00004000[0m
+[0;32mI (69) boot:  1 ota_0            OTA app          00 10 00010000 000a0000[0m
+[0;32mI (75) boot:  2 ota_1            OTA app          00 11 000b0000 000a0000[0m
+[0;32mI (82) boot:  3 otadata          OTA data         01 00 00150000 00002000[0m
+[0;32mI (88) boot:  4 spiffs           Unknown data     01 82 00152000 00020000[0m
+[0;32mI (95) boot: End of partition table[0m
+[0;32mI (98) esp_image: segment 0: paddr=000b0020 vaddr=3c020020 size=0a368h ( 41832) map[0m
+[0;32mI (113) esp_image: segment 1: paddr=000ba390 vaddr=3fc92200 size=02a20h ( 10784) load[0m
+[0;32mI (115) esp_image: segment 2: paddr=000bcdb8 vaddr=40374000 size=03260h ( 12896) load[0m
+[0;32mI (123) esp_image: segment 3: paddr=000c0020 vaddr=42000020 size=17900h ( 96512) map[0m
+[0;32mI (145) esp_image: segment 4: paddr=000d7928 vaddr=40377260 size=0aeach ( 44716) load[0m
+[0;32mI (155) esp_image: segment 5: paddr=000e27dc vaddr=600fe100 size=0001ch (    28) load[0m
+[0;32mI (161) boot: Loaded app from partition at offset 0xb0000[0m
+[0;32mI (161) boot: Disabling RNG early entropy source...[0m
+[0;32mI (173) cpu_start: Multicore app[0m
+[0;32mI (182) cpu_start: Pro cpu start user code[0m
+[0;32mI (182) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (182) app_init: Application information:[0m
+[0;32mI (182) app_init: Project name:     hello_world[0m
+[0;32mI (186) app_init: App version:      1075fce-dirty[0m
+[0;32mI (191) app_init: Compile time:     Mar  7 2025 20:31:15[0m
+[0;32mI (196) app_init: ELF file SHA256:  f96f13456...[0m
+[0;32mI (200) app_init: ESP-IDF:          v5.4-dirty[0m
+[0;32mI (204) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (208) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (212) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (216) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (222) heap_init: At 3FC954E0 len 00054230 (336 KiB): RAM[0m
+[0;32mI (227) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (232) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (238) heap_init: At 600FE11C len 00001ECC (7 KiB): RTCRAM[0m
+[0;32mI (244) spi_flash: detected chip: gd[0m
+[0;32mI (246) spi_flash: flash io: dio[0m
+[0;33mW (249) spi_flash: Detected size(8192k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (261) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (268) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (275) main_task: Started on CPU0[0m
+[0;32mI (295) main_task: Calling app_main()[0m
+Hello World 1!
+[1;31mE (295) HelloWorld: Hi this is f_loge using ESP_LOGE[0m
+
+[0;33mW (295) HelloWorld: Hi this is f_logw using ESP_LOGW[0m
+
+[0;32mI (295) HelloWorld: Hi this is f_logi using ESP_LOGI[0m
+
+[0;32mI (305) HelloWorld:  ESP_OK [0m
+
+[0;32mI (305) HelloWorld:  ESP_FAIL [0m
+
+[0;32mI (305) HelloWorld:  ESP_ERR_NO_MEM [0m
+
+[0;32mI (315) HelloWorld:  ESP_ERR_INVALID_ARG [0m
+
+[0;32mI (315) HelloWorld:  ESP_ERR_INVALID_SIZE [0m
+
+[0;32mI (325) HelloWorld:  ESP_OK [0m
+
+[0;32mI (325) HelloWorld:  ESP_OK [0m
+
+[0;32mI (325) HelloWorld:  ESP_OK [0m
+
+[0;32mI (325) HelloWorld:  ESP_OK [0m
+
+[0;32mI (335) HelloWorld:  ESP_OK [0m
+
+[0;32mI (335) HelloWorld:  ESP_OK [0m
+
+Restarting in 10 seconds...
+Restarting in 9 seconds...
+Restarting in 8 seconds...
+Restarting in 7 seconds...
+Restarting in 6 seconds...
+Restarting in 5 seconds...
+Restarting in 4 seconds...
+Restarting in 3 seconds...
+Restarting in 2 seconds...
+Restarting in 1 seconds...
+Restarting in 0 seconds...
+Restarting now.
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0x2b (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403759a0
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x15d0
+load:0x403c8700,len:0xd20
+load:0x403cb700,len:0x2f60
+entry 0x403c8924
+[0;32mI (29) boot: ESP-IDF v5.5-dev-2290-g94cfe394fe 2nd stage bootloader[0m
+[0;32mI (29) boot: compile time Mar  8 2025 15:51:31[0m
+[0;32mI (29) boot: Multicore bootloader[0m
+[0;32mI (31) boot: chip revision: v0.2[0m
+[0;32mI (34) boot: efuse block revision: v1.3[0m
+[0;32mI (37) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (41) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (45) boot.esp32s3: SPI Flash Size : 2MB[0m
+[0;32mI (49) boot: Enabling RNG early entropy source...[0m
+[0;32mI (53) boot: Partition Table:[0m
+[0;32mI (56) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (62) boot:  0 nvs              WiFi data        01 02 00009000 00004000[0m
+[0;32mI (69) boot:  1 ota_0            OTA app          00 10 00010000 000a0000[0m
+[0;32mI (75) boot:  2 ota_1            OTA app          00 11 000b0000 000a0000[0m
+[0;32mI (82) boot:  3 otadata          OTA data         01 00 00150000 00002000[0m
+[0;32mI (88) boot:  4 spiffs           Unknown data     01 82 00152000 00020000[0m
+[0;32mI (95) boot: End of partition table[0m
+[0;32mI (98) esp_image: segment 0: paddr=000b0020 vaddr=3c020020 size=0a368h ( 41832) map[0m
+[0;32mI (113) esp_image: segment 1: paddr=000ba390 vaddr=3fc92200 size=02a20h ( 10784) load[0m
+[0;32mI (115) esp_image: segment 2: paddr=000bcdb8 vaddr=40374000 size=03260h ( 12896) load[0m
+[0;32mI (123) esp_image: segment 3: paddr=000c0020 vaddr=42000020 size=17900h ( 96512) map[0m
+[0;32mI (145) esp_image: segment 4: paddr=000d7928 vaddr=40377260 size=0aeach ( 44716) load[0m
+[0;32mI (155) esp_image: segment 5: paddr=000e27dc vaddr=600fe100 size=0001ch (    28) load[0m
+[0;32mI (161) boot: Loaded app from partition at offset 0xb0000[0m
+[0;32mI (161) boot: Disabling RNG early entropy source...[0m
+[0;32mI (173) cpu_start: Multicore app[0m
+[0;32mI (182) cpu_start: Pro cpu start user code[0m
+[0;32mI (182) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (182) app_init: Application information:[0m
+[0;32mI (182) app_init: Project name:     hello_world[0m
+[0;32mI (186) app_init: App version:      1075fce-dirty[0m
+[0;32mI (191) app_init: Compile time:     Mar  7 2025 20:31:15[0m
+[0;32mI (196) app_init: ELF file SHA256:  f96f13456...[0m
+[0;32mI (200) app_init: ESP-IDF:          v5.4-dirty[0m
+[0;32mI (204) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (208) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (212) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (216) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (222) heap_init: At 3FC954E0 len 00054230 (336 KiB): RAM[0m
+[0;32mI (227) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (232) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (238) heap_init: At 600FE11C len 00001ECC (7 KiB): RTCRAM[0m
+[0;32mI (244) spi_flash: detected chip: gd[0m
+[0;32mI (246) spi_flash: flash io: dio[0m
+[0;33mW (249) spi_flash: Detected size(8192k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (261) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (268) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (275) main_task: Started on CPU0[0m
+[0;32mI (295) main_task: Calling app_main()[0m
+Hello World 1!
+[1;31mE (295) HelloWorld: Hi this is f_loge using ESP_LOGE[0m
+
+[0;33mW (295) HelloWorld: Hi this is f_logw using ESP_LOGW[0m
+
+[0;32mI (295) HelloWorld: Hi this is f_logi using ESP_LOGI[0m
+
+[0;32mI (305) HelloWorld:  ESP_OK [0m
+
+[0;32mI (305) HelloWorld:  ESP_FAIL [0m
+
+[0;32mI (305) HelloWorld:  ESP_ERR_NO_MEM [0m
+
+[0;32mI (315) HelloWorld:  ESP_ERR_INVALID_ARG [0m
+
+[0;32mI (315) HelloWorld:  ESP_ERR_INVALID_SIZE [0m
+
+[0;32mI (325) HelloWorld:  ESP_OK [0m
+
+[0;32mI (325) HelloWorld:  ESP_OK [0m
+
+[0;32mI (325) HelloWorld:  ESP_OK [0m
+
+[0;32mI (325) HelloWorld:  ESP_OK [0m
+
+[0;32mI (335) HelloWorld:  ESP_OK [0m
+
+[0;32mI (335) HelloWorld:  ESP_OK [0m
+
+Restarting in 10 seconds...
+Restarting in 9 seconds...
+Restarting in 8 seconds...
+Restarting in 7 seconds...
+Restarting in 6 seconds...
+Restarting in 5 seconds...
+Restarting in 4 seconds...
+Restarting in 3 seconds...
+Restarting in 2 seconds...
+Restarting in 1 seconds...
+Restarting in 0 seconds...
+Restarting now.
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0x2b (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403759a0
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x15d0
+load:0x403c8700,len:0xd20
+load:0x403cb700,len:0x2f60
+entry 0x403c8924
+[0;32mI (29) boot: ESP-IDF v5.5-dev-2290-g94cfe394fe 2nd stage bootloader[0m
+[0;32mI (29) boot: compile time Mar  8 2025 15:51:31[0m
+[0;32mI (29) boot: Multicore bootloader[0m
+[0;32mI (31) boot: chip revision: v0.2[0m
+[0;32mI (34) boot: efuse block revision: v1.3[0m
+[0;32mI (37) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (41) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (45) boot.esp32s3: SPI Flash Size : 2MB[0m
+[0;32mI (49) boot: Enabling RNG early entropy source...[0m
+[0;32mI (53) boot: Partition Table:[0m
+[0;32mI (56) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (62) boot:  0 nvs              WiFi data        01 02 00009000 00004000[0m
+[0;32mI (69) boot:  1 ota_0            OTA app          00 10 00010000 000a0000[0m
+[0;32mI (75) boot:  2 ota_1            OTA app          00 11 000b0000 000a0000[0m
+[0;32mI (82) boot:  3 otadata          OTA data         01 00 00150000 00002000[0m
+[0;32mI (88) boot:  4 spiffs           Unknown data     01 82 00152000 00020000[0m
+[0;32mI (95) boot: End of partition table[0m
+[0;32mI (98) esp_image: segment 0: paddr=000b0020 vaddr=3c020020 size=0a368h ( 41832) map[0m
+[0;32mI (113) esp_image: segment 1: paddr=000ba390 vaddr=3fc92200 size=02a20h ( 10784) load[0m
+[0;32mI (115) esp_image: segment 2: paddr=000bcdb8 vaddr=40374000 size=03260h ( 12896) load[0m
+[0;32mI (123) esp_image: segment 3: paddr=000c0020 vaddr=42000020 size=17900h ( 96512) map[0m
+[0;32mI (145) esp_image: segment 4: paddr=000d7928 vaddr=40377260 size=0aeach ( 44716) load[0m
+[0;32mI (155) esp_image: segment 5: paddr=000e27dc vaddr=600fe100 size=0001ch (    28) load[0m
+[0;32mI (161) boot: Loaded app from partition at offset 0xb0000[0m
+[0;32mI (161) boot: Disabling RNG early entropy source...[0m
+[0;32mI (173) cpu_start: Multicore app[0m
+[0;32mI (182) cpu_start: Pro cpu start user code[0m
+[0;32mI (182) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (182) app_init: Application information:[0m
+[0;32mI (182) app_init: Project name:     hello_world[0m
+[0;32mI (186) app_init: App version:      1075fce-dirty[0m
+[0;32mI (191) app_init: Compile time:     Mar  7 2025 20:31:15[0m
+[0;32mI (196) app_init: ELF file SHA256:  f96f13456...[0m
+[0;32mI (200) app_init: ESP-IDF:          v5.4-dirty[0m
+[0;32mI (204) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (208) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (212) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (216) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (222) heap_init: At 3FC954E0 len 00054230 (336 KiB): RAM[0m
+[0;32mI (227) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (232) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (238) heap_init: At 600FE11C len 00001ECC (7 KiB): RTCRAM[0m
+[0;32mI (244) spi_flash: detected chip: gd[0m
+[0;32mI (246) spi_flash: flash io: dio[0m
+[0;33mW (249) spi_flash: Detected size(8192k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (261) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (268) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (275) main_task: Started on CPU0[0m
+[0;32mI (295) main_task: Calling app_main()[0m
+Hello World 1!
+[1;31mE (295) HelloWorld: Hi this is f_loge using ESP_LOGE[0m
+
+[0;33mW (295) HelloWorld: Hi this is f_logw using ESP_LOGW[0m
+
+[0;32mI (295) HelloWorld: Hi this is f_logi using ESP_LOGI[0m
+
+[0;32mI (305) HelloWorld:  ESP_OK [0m
+
+[0;32mI (305) HelloWorld:  ESP_FAIL [0m
+
+[0;32mI (305) HelloWorld:  ESP_ERR_NO_MEM [0m
+
+[0;32mI (315) HelloWorld:  ESP_ERR_INVALID_ARG [0m
+
+[0;32mI (315) HelloWorld:  ESP_ERR_INVALID_SIZE [0m
+
+[0;32mI (325) HelloWorld:  ESP_OK [0m
+
+[0;32mI (325) HelloWorld:  ESP_OK [0m
+
+[0;32mI (325) HelloWorld:  ESP_OK [0m
+
+[0;32mI (325) HelloWorld:  ESP_OK [0m
+
+[0;32mI (335) HelloWorld:  ESP_OK [0m
+
+[0;32mI (335) HelloWorld:  ESP_OK [0m
+
+Restarting in 10 seconds...
+Restarting in 9 seconds...
+Restarting in 8 seconds...
+Done
