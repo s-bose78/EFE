@@ -6,4 +6,5 @@
 ### NOTE: No anti-rollback and failure\corruption handling implemented.
 ## **3) my_project_cam**
 ### Example web cam server using ESP32S3 with OV2640 sensor. Additional Capture button for JPEG.
-  
+## **4) USBMS**
+### Example usbms device enumeration using tinyffs ###
