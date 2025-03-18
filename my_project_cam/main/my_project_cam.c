@@ -15,10 +15,35 @@
 #include "my_connect.h"
 #include "my_cam.h"
 #include "my_server.h"
+#include "esp_pm.h"
+//increase Component config->LWIP->TCP
+//Default TCP rto time 1500
+//Default Send Buffer Size 10240
+//Default Receive Buffer Size 10240
+
 
 static const char *TAG = "my_app_main";
+
+void cpu_spped(void) {
+    // Configure the CPU frequency to 240 MHz (for ESP32-S3)
+    esp_pm_config_t pm_config = {
+    .max_freq_mhz = 160, // Max CPU frequency (240 MHz)
+    .min_freq_mhz = 160, // Min CPU frequency (80 MHz)
+    .light_sleep_enable = 0 // Enable light sleep mode (optional)
+    };
+    
+   // Initialize the power management
+    int err = esp_pm_configure(&pm_config);
+    if (err == ESP_OK) {
+    ESP_LOGI("CPU", "CPU frequency range set to 80 MHz - 240 MHz");
+    } else {
+    ESP_LOGE("CPU", "Error setting CPU frequency err: %d", err);
+    }
+}
+
 void app_main(void)
 {
+    cpu_spped();
     /*=============================== */
     /* Initialize NVS */
     esp_err_t ret = nvs_flash_init();
