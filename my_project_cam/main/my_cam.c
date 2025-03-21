@@ -51,16 +51,16 @@ static camera_config_t camera_config = {
     .pin_href = CAM_PIN_HREF,
     .pin_pclk = CAM_PIN_PCLK,
 
-//    .xclk_freq_hz = 20000000,         //continous cam_hal: EV-VSYNC-OVF
-    .xclk_freq_hz = 10000000,       // intermettent cam_hal: EV-VSYNC-OVF
+    .xclk_freq_hz = 20000000,         //continous cam_hal: EV-VSYNC-OVF
+//    .xclk_freq_hz = 10000000,       // intermettent cam_hal: EV-VSYNC-OVF
     .ledc_timer = LEDC_TIMER_0,
     .ledc_channel = LEDC_CHANNEL_0,
 //    .pixel_format = PIXFORMAT_RGB565,
     .pixel_format = PIXFORMAT_JPEG,
-//    .frame_size = FRAMESIZE_QVGA,
+//    .frame_size = FRAMESIZE_HQVGA,
     .frame_size = FRAMESIZE_240X240,
-    .jpeg_quality = 50,
-    .fb_count = 20,       //When jpeg mode is used, if fb_count more than one, the driver will work in continuous mode.
+    .jpeg_quality = 12,
+    .fb_count = 4,       //When jpeg mode is used, if fb_count more than one, the driver will work in continuous mode.
     .fb_location = CAMERA_FB_IN_PSRAM,
     .grab_mode = CAMERA_GRAB_WHEN_EMPTY,
 //    .grab_mode = CAMERA_GRAB_LATEST,
@@ -112,6 +112,32 @@ esp_err_t init_camera(void)
         ESP_LOGE(TAG, "Camera Init Failed");
         return err;
     }
+
+    // Get the sensor interface
+    sensor_t *s = esp_camera_sensor_get();
+    //https://randomnerdtutorials.com/esp32-cam-ov2640-camera-settings/
+    s->set_brightness(s, 1);     // -2 to 2
+    s->set_contrast(s, 1);       // -2 to 2
+    s->set_saturation(s, 0);     // -2 to 2
+    s->set_special_effect(s, 0); // 0 to 6 (0 - No Effect, 1 - Negative, 2 - Grayscale, 3 - Red Tint, 4 - Green Tint, 5 - Blue Tint, 6 - Sepia)
+    s->set_whitebal(s, 1);       // 0 = disable , 1 = enable
+    s->set_awb_gain(s, 1);       // 0 = disable , 1 = enable
+    s->set_wb_mode(s, 4);        // 0 to 4 - if awb_gain enabled (0 - Auto, 1 - Sunny, 2 - Cloudy, 3 - Office, 4 - Home)
+    s->set_exposure_ctrl(s, 1);  // 0 = disable , 1 = enable
+    s->set_aec2(s, 0);           // 0 = disable , 1 = enable
+    s->set_ae_level(s, 0);       // -2 to 2
+    s->set_aec_value(s, 300);    // 0 to 1200
+    s->set_gain_ctrl(s, 1);      // 0 = disable , 1 = enable
+    s->set_agc_gain(s, 1);       // 0 to 30
+    s->set_gainceiling(s, (gainceiling_t)0);  // 0 to 6
+    s->set_bpc(s, 0);            // 0 = disable , 1 = enable
+    s->set_wpc(s, 1);            // 0 = disable , 1 = enable
+    s->set_raw_gma(s, 1);        // 0 = disable , 1 = enable
+    s->set_lenc(s, 1);           // 0 = disable , 1 = enable
+    s->set_hmirror(s, 0);        // 0 = disable , 1 = enable
+    s->set_vflip(s, 0);          // 0 = disable , 1 = enable
+    s->set_dcw(s, 1);            // 0 = disable , 1 = enable
+    s->set_colorbar(s, 0);       // 0 = disable , 1 = enable
 
     return ESP_OK;
 }

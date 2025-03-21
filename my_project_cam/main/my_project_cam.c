@@ -27,8 +27,8 @@ static const char *TAG = "my_app_main";
 void cpu_spped(void) {
     // Configure the CPU frequency to 240 MHz (for ESP32-S3)
     esp_pm_config_t pm_config = {
-    .max_freq_mhz = 160, // Max CPU frequency (240 MHz)
-    .min_freq_mhz = 160, // Min CPU frequency (80 MHz)
+    .max_freq_mhz = 240, // Max CPU frequency (240 MHz)
+    .min_freq_mhz = 240, // Min CPU frequency (80 MHz)
     .light_sleep_enable = 0 // Enable light sleep mode (optional)
     };
     
