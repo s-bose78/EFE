@@ -1,0 +1,20 @@
+{
+    "C_Cpp.intelliSenseEngine": "default",
+    "idf.espIdfPath": "/home/srijit/esp/esp-idf",
+    "idf.pythonInstallPath": "/home/srijit/.espressif/python_env/idf5.5_py3.12_env/bin/python",
+    "idf.openOcdConfigs": [
+        "board/esp32s3-builtin.cfg"
+    ],
+    "idf.port": "/dev/ttyACM0",
+    "idf.toolsPath": "/home/srijit/.espressif",
+    "idf.flashType": "UART",
+    "idf.customExtraVars": {
+        "IDF_TARGET": "esp32s3"
+    },
+    "files.associations": {
+        "esp_event_loop.h": "c",
+        "esp_flash.h": "c",
+        "esp_netif_sntp.h": "c",
+        "esp_netif.h": "c"
+    }
+}
