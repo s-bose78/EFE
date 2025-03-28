@@ -14,7 +14,6 @@
 #include "esp_http_client.h"
 
 const char *TAG="my_http_client";
-//#define API_KEY "AIzaSyD4GoM4wIhgb1djZlifiM1DGmkNfCjXaAo"
 #define API_KEY CONFIG_ESP_API_KEY
 
 char resp_output[1024];
