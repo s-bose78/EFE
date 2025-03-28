@@ -1,0 +1,23 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${env:IDF_PATH}/components/**",
+                "${env:IDF_PATH}/components/esp_rom/include",
+                "${env:IDF_PATH}/components/esp32/include",
+                "${env:IDF_PATH}/tools/**",
+                "${env:IDF_PATH}/components/freertos/include",
+                "${env:IDF_PATH}/components/newlib/include",
+                "${env:IDF_PATH}/components/driver/include"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c17",
+            "cppStandard": "gnu++17",
+            "intelliSenseMode": "linux-gcc-x64"
+        }
+    ],
+    "version": 4
+}
