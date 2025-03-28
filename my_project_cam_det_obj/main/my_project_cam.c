@@ -95,6 +95,6 @@ void app_main(void)
 
     // Set the log level for the esp-x509 module to none.
     esp_log_level_set("esp-x509-crt-bundle", ESP_LOG_NONE);
-
+    esp_log_level_set("httpd_txrx", ESP_LOG_ERROR);
     vTaskDelay(pdMS_TO_TICKS(BLOCK_INIT_DELAY));
 }
